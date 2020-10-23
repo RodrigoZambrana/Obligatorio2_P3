@@ -1,0 +1,10 @@
+Proyecto|Es un gran proyecto|20000|5|Aprobado|10/9/2020 0:00:00|8|5
+Proyecto2|Es un gran proyecto2|30000|8|APROBADO|10/10/2020 0:00:00|2|5
+Proyecto3|Es un gran proyecto3|40000|2|RECHAZADO|11/10/2020 0:00:00|2|5
+Proyecto4|Es un gran proyecto4|20000|5|PENDIENTE|3/8/2020 0:00:00|2|5
+ProyectoO|Es un otro proyecto|10000|7|PENDIENTE|10/10/2020 0:00:00|2|5
+Proyect|The best|10009|8|RECHAZADO|18/10/2020 0:00:00|3|0
+Proyecto 11|Descript|23001|8|PENDIENTE|19/10/2020 0:00:00|0|0
+Titulo2|desc|22330|5|PENDIENTE|19/10/2020 0:00:00|0|0
+Pro Coop|Un pro coop|23233|5|PENDIENTE|19/10/2020 0:00:00|0|0
+Defensa|defensa del oblig|12345|8|Aprobado|19/10/2020 0:00:00|8|0

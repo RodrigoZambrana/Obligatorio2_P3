@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="00a8c0e4-6d64-4b7a-8f05-7440ce770c2f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:49779/ServiciosProyecto.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ServiciosProyecto.xsd" MetadataType="Schema" ID="b66db4ea-c8fc-4ecd-95d9-96a737849cf7" SourceId="1" SourceUrl="http://localhost:49779/ServiciosProyecto.svc?xsd=xsd2" />
+    <MetadataFile FileName="ServiciosProyecto.disco" MetadataType="Disco" ID="8824499b-8cbb-4fa0-a7cc-413cc34e7b66" SourceId="1" SourceUrl="http://localhost:49779/ServiciosProyecto.svc?disco" />
+    <MetadataFile FileName="ServiciosProyecto1.xsd" MetadataType="Schema" ID="1095cd25-1953-4ea9-93c3-e95bdee04d24" SourceId="1" SourceUrl="http://localhost:49779/ServiciosProyecto.svc?xsd=xsd1" />
+    <MetadataFile FileName="ServiciosProyecto2.xsd" MetadataType="Schema" ID="137eda55-8007-469c-8da0-f808ba17f0b2" SourceId="1" SourceUrl="http://localhost:49779/ServiciosProyecto.svc?xsd=xsd0" />
+    <MetadataFile FileName="ServiciosProyecto.wsdl" MetadataType="Wsdl" ID="613b1854-0abd-4df0-98d3-a8bc26b725b7" SourceId="1" SourceUrl="http://localhost:49779/ServiciosProyecto.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

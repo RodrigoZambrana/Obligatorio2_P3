@@ -1,0 +1,18 @@
+C:\Users\Usuario\Source\Repos\RodrigoZambrana\obligatorioP3\Repositorios\bin\Debug\Repositorios.dll
+C:\Users\Usuario\Source\Repos\RodrigoZambrana\obligatorioP3\Repositorios\bin\Debug\Repositorios.pdb
+C:\Users\Usuario\Source\Repos\RodrigoZambrana\obligatorioP3\Repositorios\bin\Debug\Dominio.dll
+C:\Users\Usuario\Source\Repos\RodrigoZambrana\obligatorioP3\Repositorios\bin\Debug\Dominio.pdb
+C:\Users\Usuario\Source\Repos\RodrigoZambrana\obligatorioP3\Repositorios\obj\Debug\Repositorios.csprojAssemblyReference.cache
+C:\Users\Usuario\Source\Repos\RodrigoZambrana\obligatorioP3\Repositorios\obj\Debug\Repositorios.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Source\Repos\RodrigoZambrana\obligatorioP3\Repositorios\obj\Debug\Repositorios.csproj.CopyComplete
+C:\Users\Usuario\Source\Repos\RodrigoZambrana\obligatorioP3\Repositorios\obj\Debug\Repositorios.dll
+C:\Users\Usuario\Source\Repos\RodrigoZambrana\obligatorioP3\Repositorios\obj\Debug\Repositorios.pdb
+C:\Users\Pam y Pedro\Desktop\Pedro\Unity\Cosas2\obligatorioP3\codigo\Repositorios\bin\Debug\Repositorios.dll
+C:\Users\Pam y Pedro\Desktop\Pedro\Unity\Cosas2\obligatorioP3\codigo\Repositorios\bin\Debug\Repositorios.pdb
+C:\Users\Pam y Pedro\Desktop\Pedro\Unity\Cosas2\obligatorioP3\codigo\Repositorios\bin\Debug\Dominio.dll
+C:\Users\Pam y Pedro\Desktop\Pedro\Unity\Cosas2\obligatorioP3\codigo\Repositorios\bin\Debug\Dominio.pdb
+C:\Users\Pam y Pedro\Desktop\Pedro\Unity\Cosas2\obligatorioP3\codigo\Repositorios\obj\Debug\Repositorios.csprojAssemblyReference.cache
+C:\Users\Pam y Pedro\Desktop\Pedro\Unity\Cosas2\obligatorioP3\codigo\Repositorios\obj\Debug\Repositorios.csproj.CoreCompileInputs.cache
+C:\Users\Pam y Pedro\Desktop\Pedro\Unity\Cosas2\obligatorioP3\codigo\Repositorios\obj\Debug\Repositorios.csproj.CopyComplete
+C:\Users\Pam y Pedro\Desktop\Pedro\Unity\Cosas2\obligatorioP3\codigo\Repositorios\obj\Debug\Repositorios.dll
+C:\Users\Pam y Pedro\Desktop\Pedro\Unity\Cosas2\obligatorioP3\codigo\Repositorios\obj\Debug\Repositorios.pdb
