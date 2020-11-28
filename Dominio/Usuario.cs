@@ -6,6 +6,7 @@ namespace Dominio
 	public class Usuario
 	{
         [Required]
+        [Key]
         public String cedula{ get; set; }
 
         [Required]

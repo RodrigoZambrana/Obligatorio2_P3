@@ -15,6 +15,7 @@ namespace WebApiObligatorio2.Controllers
         // GET: api/Proyecto
         public IHttpActionResult Get()
         {
+
             var proyectos = repoProy.FindAll();
             if (proyectos != null)
             {

@@ -47,6 +47,7 @@
     <Compile Include="cambioEstado.cs" />
     <Compile Include="Cooperativo.cs" />
     <Compile Include="Cuota_Tasa.cs" />
+    <Compile Include="Inversor.cs" />
     <Compile Include="IRepositorio.cs" />
     <Compile Include="Personal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

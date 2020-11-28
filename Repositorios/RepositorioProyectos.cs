@@ -14,9 +14,22 @@ namespace Repositorios
     {
         private PrestamosContext db = new PrestamosContext();
 
-        public bool Add(Proyecto unT)
+        public bool Add(Proyecto objeto)
         {
-            throw new NotImplementedException();
+            if (objeto == null) return false;
+            try
+            {
+                using (db)
+                {
+                    db.Proyectos.Add(objeto);
+                    db.SaveChanges();
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
         }
 
         public IEnumerable<Proyecto> FindAll()
@@ -38,17 +51,64 @@ namespace Repositorios
 
         public Proyecto FindById(object clave)
         {
-            throw new NotImplementedException();
+            try
+            {
+                int idProyecto = (int)clave;
+                using (db)
+                {
+                    Proyecto unProyecto = db.Proyectos.Find(idProyecto);
+                    return unProyecto;
+                }
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
         }
 
-        public bool Remove(Proyecto unT)
+        public bool Remove(Proyecto clave)
         {
-            throw new NotImplementedException();
+            try
+            {
+                int idProyecto = (int)clave.id;
+                using (db)
+                {
+                    Proyecto unProyecto = db.Proyectos.Find(idProyecto);
+                    if (unProyecto != null)
+                    {
+                        db.Proyectos.Remove(unProyecto);
+                        db.SaveChanges();
+                        return true;
+                    }
+
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+
         }
 
-        public bool Update(Proyecto unT)
+        public bool Update(Proyecto objeto)
         {
-            throw new NotImplementedException();
+            if (objeto == null) return false;
+            try
+            {
+
+                using (db)
+                {
+                    db.Entry(objeto).State = System.Data.Entity.EntityState.Modified;
+                    db.SaveChanges();
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
         }
     }
 

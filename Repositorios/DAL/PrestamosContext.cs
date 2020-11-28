@@ -18,11 +18,14 @@ namespace Repositorios.DAL
 
         public DbSet<Solicitante> Solicitantes { get; set; }
 
-        
-        public PrestamosContext() : base("con2020")
+
+        public DbSet<Inversor> Inversores { get; set; }
+
+        public PrestamosContext() : base("miConexion")
         {
 
         }
 
     }
 }
+

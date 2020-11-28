@@ -10,23 +10,23 @@ namespace Obligatorio.Controllers
 {
     public class SolicitanteController : Controller
     {
-        public ActionResult Index()
-        {
-            if (Session["usuario"] == null || (string)Session["rol"] != "SOLICITANTE")
-            {
-                Session["usuario"] = null;
+        //public ActionResult Index()
+        //{
+        //    //if (Session["usuario"] == null || (string)Session["rol"] != "SOLICITANTE")
+            //{
+            //    Session["usuario"] = null;
 
-                Session["rol"] = null;
+            //    Session["rol"] = null;
 
-                return RedirectToAction("Index", "Home");
-            }
+            //    return RedirectToAction("Index", "Home");
+            //}
 
-            string usuario = (string)Session["usuario"];
-            RepositorioProyectos repoProyectos = new RepositorioProyectos();
-            IEnumerable<Proyecto> listProyectos = repoProyectos.ProyectosPorUsuario(usuario);
+            //string usuario = (string)Session["usuario"];
+            //RepositorioProyectos repoProyectos = new RepositorioProyectos();
+            //IEnumerable<Proyecto> listProyectos = repoProyectos.ProyectosPorUsuario(usuario);
 
-            return View(listProyectos);
-        }
+            //return View(listProyectos);
+        //}
         
     }
 }
