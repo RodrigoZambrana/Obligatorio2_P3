@@ -45,6 +45,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -126,6 +132,7 @@
     <Compile Include="Controllers\ControladoresArchivos\ArchivoProyectoController.cs" />
     <Compile Include="Controllers\Datetime.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InversorController.cs" />
     <Compile Include="Controllers\ProyectoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -182,6 +189,11 @@
     <Content Include="Views\Proyecto\Index.cshtml" />
     <Content Include="Views\Proyecto\Confirmar.cshtml" />
     <Content Include="Views\Proyecto\Details.cshtml" />
+    <Content Include="Views\Inversor\Create.cshtml" />
+    <Content Include="Views\Inversor\Delete.cshtml" />
+    <Content Include="Views\Inversor\Details.cshtml" />
+    <Content Include="Views\Inversor\Edit.cshtml" />
+    <Content Include="Views\Inversor\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
