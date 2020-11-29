@@ -1,8 +1,10 @@
 using Dominio;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Dominio
 {
-	public class Admin : Usuario
+    [Table("Admins")]
+    public class Admin : Usuario
 	{
         //prueba final
     }

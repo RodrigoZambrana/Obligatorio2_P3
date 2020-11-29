@@ -1,11 +1,13 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Web;
 using Dominio;
 
 namespace Dominio
 {
-	public class Proyecto
+    [Table("Proyectos")]
+    public class Proyecto
 	{
         public int id { get; set; }
         [Required]

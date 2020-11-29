@@ -1,9 +1,11 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Dominio
 {
-	public class Usuario
+    [Table("Usuarios")]
+    public class Usuario
 	{
         [Required]
         [Key]

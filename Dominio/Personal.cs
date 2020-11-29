@@ -1,8 +1,10 @@
 using Dominio;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Dominio
 {
-	public class Personal : Proyecto
+    [Table("Personales")]
+    public class Personal : Proyecto
 	{
 		public string experiencia{ get; set; }
 
