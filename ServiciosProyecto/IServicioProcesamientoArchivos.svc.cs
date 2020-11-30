@@ -98,9 +98,8 @@ namespace ServiciosProyecto
                         apellido = lineaVec[2].ToString(),
                         fechaNacimiento = DateTime.Parse(lineaVec[3]),
                         email= lineaVec[4].ToString(),
-                        celular= lineaVec[5].ToString()
-
-
+                        celular= lineaVec[5].ToString(),
+                        password="password"
                     };
                 repoUsuarios.Add(solicitante);                  
                     linea = sr.ReadLine();
