@@ -40,7 +40,7 @@ namespace ServiciosProyecto
                         {
                             Cooperativo c = new Cooperativo{
                                 id= int.Parse(lineaVec[0]),
-                                solicitante=(Solicitante)repoU.FindById(lineaVec[1].ToString()),
+                                //solicitante=(Solicitante)repoU.FindById(lineaVec[1].ToString()),
                                 titulo = lineaVec[2].ToString(),
                                 descripcion = lineaVec[3].ToString(),
                                 monto = decimal.Parse(lineaVec[4]),
