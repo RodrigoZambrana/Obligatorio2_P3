@@ -1,0 +1,18 @@
+﻿1|34406412|Salvemos el mundo|un progama para concientizar sobre contaminacion ambiental|500000|24|5%|21875|01/10/2019|imagen.jpg|cooperativo|5
+2
+2|44406412|educiación 5.0|un progama de educacion a distancia|100000|24|8%|43000|01/08/2019|imagen.jpg|cooperativo|3
+3
+3|1234568|Viviendas ecologicas|un progama de viviendas ecologicas|30000|10|7%|3200|10/06/2019|imagen.jpg|cooperativo|7
+
+4|1234567|Animales salvajes|un progama para concientizar sobre contaminacion ambiental|8000|24|5%|21875|11/09/2020|imagen.jpg|cooperativo|9
+5|123457|Programacion +5|un progama para concientizar sobre contaminacion ambiental|2000|24|5%|21875|01/03/2020|imagen.jpg|cooperativoo|7
+
+6|34406412|Salvemos a los libros|un progama para retomar el habito de lectura|87200|24|5%|21875|24/06/2018|imagen.jpg|personal|mucha experiencia
+
+7|44406412|Luchemos contra el calentamiento global|un progama de difusion sobre la problemarica del calentamiento global|16652|24|3%|21875|01/07/2020|imagen.jpg|personal|experiencia alta
+
+8|1234568|Tursimo de aventura|un progama de difusion del tursimo de aventura|6100|24|5%|21875|01/08/2019|imagen.jpg|personal|experiencia media
+
+9|1234567|Todos por los osos polares|un progama para concientizar sobre contaminacion ambiental|13000|24|22%|21875|01/004/2020|imagen.jpg|personal|experiencia alta
+
+10|123457|Una computadora por niño|un progama para concientizar sobre contaminacion ambiental|76000|24|19%|21875|03/08/2020|imagen.jpg|personal|experiencia baja

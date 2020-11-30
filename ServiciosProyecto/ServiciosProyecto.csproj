@@ -61,12 +61,17 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="IServicioProcesamientoArchivos.svc" />
     <Content Include="ServiciosProyecto.svc" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IServicioProcesamientoArchivos.cs" />
+    <Compile Include="IServicioProcesamientoArchivos.svc.cs">
+      <DependentUpon>IServicioProcesamientoArchivos.svc</DependentUpon>
+    </Compile>
     <Compile Include="ServiciosProyecto.svc.cs">
       <DependentUpon>ServiciosProyecto.svc</DependentUpon>
     </Compile>
