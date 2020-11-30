@@ -10,6 +10,7 @@ using System.Net;
 
 namespace Obligatorio.Controllers
 {
+    //a mi me funca
     public class ProyectoController : Controller
     {
         HttpClient cliente = new HttpClient();
