@@ -196,8 +196,8 @@
     <Content Include="Views\Inversor\Delete.cshtml" />
     <Content Include="Views\Inversor\Details.cshtml" />
     <Content Include="Views\Inversor\Edit.cshtml" />
-    <Content Include="Views\Inversor\Index.cshtml" />
     <Content Include="Views\Solicitante\Index.cshtml" />
+    <Content Include="Views\Inversor\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

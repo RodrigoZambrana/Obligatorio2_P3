@@ -28,7 +28,8 @@ namespace Obligatorio.Controllers
         // GET: Productos
         public ActionResult Index()
         {
-            response = cliente.GetAsync(proyectoUri+"/solicitante/"+"12345678").Result;
+            string cedula = (string)Session["usuario"];
+            response = cliente.GetAsync(proyectoUri+"/solicitante/"+cedula).Result;
             if (response.IsSuccessStatusCode)
             {
                 var proys = response.Content.ReadAsAsync<IEnumerable<Models.ProyectoModel>>().Result;

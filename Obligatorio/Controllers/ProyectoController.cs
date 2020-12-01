@@ -25,7 +25,7 @@ namespace Obligatorio.Controllers
             cliente.DefaultRequestHeaders.Accept.Add(
        new MediaTypeWithQualityHeaderValue("application/json"));
         }
-        // GET: Productos
+        // GET: Proyecto
         public ActionResult Index()
         {
             response = cliente.GetAsync(proyectoUri).Result;
@@ -39,7 +39,7 @@ namespace Obligatorio.Controllers
                     return View("Index", proys.ToList());
                 else
                 {
-                    TempData["ResultadoOperacion"] = "No hay productos disponibles";
+                    TempData["ResultadoOperacion"] = "No hay proyectos disponibles";
                     return View("Index", new List<ProyectoModel>());
                 }
             }

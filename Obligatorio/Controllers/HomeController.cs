@@ -33,14 +33,18 @@ namespace Obligatorio.Controllers
                 if (u is Admin)
                 {
                     Admin a= (Admin) u;
-                    return RedirectToAction("Index", "Admin", a);
+                    return RedirectToAction("Index", "Admin");
                 }
                 if (u is Solicitante)
                 {
                     Solicitante s = (Solicitante)u;
-                    return RedirectToAction("Index", "Solicitante",s);
+                    return RedirectToAction("Index", "Solicitante");
                 }
-
+                if (u is Inversor)
+                {
+                    Inversor i = (Inversor)u;
+                    return RedirectToAction("Index", "Inversor");
+                }
             }
             else
             {

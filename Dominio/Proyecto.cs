@@ -20,7 +20,7 @@ namespace Dominio
         public int cuotas{ get; set; }
         [Required]
         public string rutaImagen{ get; set; }
-        public string estado { get; set; } = "PENDIENTE";
+        public string estado { get; set; } = "ABIERTO";
         public DateTime fechaPresentacion { get; set; } = DateTime.Now;
         [Required]
         public int puntaje { get; set; } = 0;
