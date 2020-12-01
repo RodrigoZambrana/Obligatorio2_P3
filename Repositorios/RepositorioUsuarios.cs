@@ -53,7 +53,7 @@ namespace Repositorios
 
             {
 
-                return db.Usuarios.Find((int)clave);
+                return db.Usuarios.Find((string)clave);
 
             }
 

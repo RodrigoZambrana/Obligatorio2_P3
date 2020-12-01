@@ -26,11 +26,18 @@ namespace WebApiObligatorio2.Controllers
 
            
         }
-
+        [Route ("api/proyecto/solicitante/{cedula}")]
         // GET: api/Proyecto/5
-        public string Get(int id)
+        public IHttpActionResult GetPorCedula(string cedula)
         {
-            return null;
+            var proyectos = repoProy.FindProyectoPorUsuario(cedula);
+            if (proyectos != null)
+            {
+                return Ok(proyectos);
+            }
+            else
+                return NotFound();
+
         }
 
         // POST: api/Proyecto

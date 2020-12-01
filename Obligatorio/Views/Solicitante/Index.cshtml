@@ -1,11 +1,11 @@
-﻿@model IEnumerable<Dominio.Proyecto>
+﻿@model IEnumerable<Obligatorio.Models.ProyectoModel>
 
 @{
-    ViewBag.Title = "ProyectosDeUsuario";
+    ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Mis proyectos</h2>
+<h2>Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -36,48 +36,41 @@
         <th>
             @Html.DisplayNameFor(model => model.puntaje)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.tasaInteres)
-        </th>
         <th></th>
     </tr>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.titulo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.descripcion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.monto)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.cuotas)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.rutaImagen)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.estado)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.fechaPresentacion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.puntaje)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.tasaInteres)
-            </td>
-            <td>
-               
-                <a href="/Proyecto/Details?id=@item.id">Detalles</a>
-               
-            </td>
-        </tr>
-    }
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.titulo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.monto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cuotas)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.rutaImagen)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.estado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fechaPresentacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.puntaje)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
 
 </table>

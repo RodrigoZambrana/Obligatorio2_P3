@@ -53,7 +53,7 @@ namespace Repositorios
         {
             try
             {
-                int idProyecto = (int)clave;
+                string idProyecto = (string)clave;
                 using (db)
                 {
                     Proyecto unProyecto = db.Proyectos.Find(idProyecto);
@@ -109,6 +109,26 @@ namespace Repositorios
             {
                 return false;
             }
+
+
+
+        }
+        public IEnumerable<Proyecto> FindProyectoPorUsuario(string cedula)
+        {
+            try
+            {
+                
+                using (db)
+                {
+                IEnumerable<Proyecto>  unProyecto = db.Proyectos.Where(p=>p.solicitante.cedula==cedula).ToList();
+                    return unProyecto;
+                }
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
         }
     }
 

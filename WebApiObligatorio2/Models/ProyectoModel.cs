@@ -10,19 +10,17 @@ namespace Obligatorio.Models
 
     {
         public string titulo { get; set; }
-        
+        [Required]
         public string descripcion { get; set; }
-      
+        [Required]
         public decimal monto { get; set; }
-   
+        [Required]
         public int cuotas { get; set; }
-        
+        [Required]
         public string rutaImagen { get; set; }
         public string estado { get; set; } 
         public DateTime fechaPresentacion { get; set; }
-        
+        [Required]
         public int puntaje { get; set; }
-
-        public string tipo { get; set; }
     }
 }
