@@ -41,7 +41,7 @@ namespace WebApiObligatorio2.Controllers
         }
 
         [HttpGet]
-        [Route("busqueda")]
+        [Route("api/proyecto/busqueda")]
         public IHttpActionResult Buscar([FromUri] Models.BusquedaModel datos)
         {
             //Búsqueda por refinaciones sucesivas (AND)
