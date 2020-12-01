@@ -183,8 +183,6 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Create.cshtml" />
-    <Content Include="Views\Proyecto\Personal.cshtml" />
-    <Content Include="Views\Proyecto\ListadoDeProyectos.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Proyecto\Edit.cshtml" />
     <Content Include="Views\ArchivoProyecto\Index.cshtml" />
@@ -192,10 +190,6 @@
     <Content Include="Views\Proyecto\Index.cshtml" />
     <Content Include="Views\Proyecto\Confirmar.cshtml" />
     <Content Include="Views\Proyecto\Details.cshtml" />
-    <Content Include="Views\Inversor\Create.cshtml" />
-    <Content Include="Views\Inversor\Delete.cshtml" />
-    <Content Include="Views\Inversor\Details.cshtml" />
-    <Content Include="Views\Inversor\Edit.cshtml" />
     <Content Include="Views\Solicitante\Index.cshtml" />
     <Content Include="Views\Inversor\Index.cshtml" />
   </ItemGroup>
