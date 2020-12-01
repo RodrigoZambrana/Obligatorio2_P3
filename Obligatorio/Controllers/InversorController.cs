@@ -54,108 +54,148 @@ namespace Obligatorio.Controllers
             }
         }
 
-    //    // GET: Inversors/Details/5
-    //    public ActionResult Details(string id)
-    //    {
-    //        if (id == null)
-    //        {
-    //            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-    //        }
-    //        Inversor inversor = db.Inversores.Find(id);
-    //        if (inversor == null)
-    //        {
-    //            return HttpNotFound();
-    //        }
-    //        return View(inversor);
-    //    }
+        public ActionResult Buscar(DateTime fechaini, DateTime fechaFin, string cedula, string titulo, string descripcion, string estado, decimal? monto)
+        {
+            string ruta = "";
+            string cedulaSession = (string)Session["usuario"];
+            string rol = (string)Session["rol"];
+            if (rol=="INVERSOR") {
+                 ruta = $"{proyectoUri}/busqueda/?fechaIni={fechaini}&fechaFin={fechaFin}&cedula={cedula}&titulo={titulo}&descripcion={descripcion}&estado={estado}&monto={monto}";
+                Uri uri = new Uri(ruta);
 
-    //    // GET: Inversors/Create
-    //    public ActionResult Create()
-    //    {
-    //        return View();
-    //    }
+                var response = cliente.GetAsync(uri).Result;
+                if (response.IsSuccessStatusCode)
+                {
+                    var lista = response.Content.ReadAsAsync<IEnumerable<ProyectoModel>>().Result;
+                    ViewBag.Mensaje = $"Se encontraron {lista.Count()} resultados";
+                    View("Index", "Inversor", lista);
+                }
+                ViewBag.Mensaje = "No se encontraron resultados";
+                return View();
+            }
+            if (rol == "SOLICITANTE")
+            {
+                ruta = $"{proyectoUri}/busqueda/?fechaIni={fechaini}&fechaFin={fechaFin}&cedula={cedulaSession}&titulo={titulo}&descripcion={descripcion}&estado={estado}&monto={monto}";
 
-    //    // POST: Inversors/Create
-    //    // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
-    //    // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
-    //    [HttpPost]
-    //    [ValidateAntiForgeryToken]
-    //    public ActionResult Create([Bind(Include = "cedula,nombre,apellido,fechaNacimiento,password,celular,email,montoInversion,presentacion")] Inversor inversor)
-    //    {
-    //        if (ModelState.IsValid)
-    //        {
-    //            db.Usuarios.Add(inversor);
-    //            db.SaveChanges();
-    //            return RedirectToAction("Index");
-    //        }
+                Uri uri = new Uri(ruta);
 
-    //        return View(inversor);
-    //    }
+                var response = cliente.GetAsync(uri).Result;
+                if (response.IsSuccessStatusCode)
+                {
+                    var lista = response.Content.ReadAsAsync<IEnumerable<ProyectoModel>>().Result;
+                    ViewBag.Mensaje = $"Se encontraron {lista.Count()} resultados";
+                    return View("Index","Solicitante",lista);
+                }
+                ViewBag.Mensaje = "No se encontraron resultados";
+                return View();
+            }
+            return View("Index","Home");
+        }
 
-    //    // GET: Inversors/Edit/5
-    //    public ActionResult Edit(string id)
-    //    {
-    //        if (id == null)
-    //        {
-    //            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-    //        }
-    //        Inversor inversor = db.Inversores.Find(id);
-    //        if (inversor == null)
-    //        {
-    //            return HttpNotFound();
-    //        }
-    //        return View(inversor);
-    //    }
 
-    //    // POST: Inversors/Edit/5
-    //    // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
-    //    // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
-    //    [HttpPost]
-    //    [ValidateAntiForgeryToken]
-    //    public ActionResult Edit([Bind(Include = "cedula,nombre,apellido,fechaNacimiento,password,celular,email,montoInversion,presentacion")] Inversor inversor)
-    //    {
-    //        if (ModelState.IsValid)
-    //        {
-    //            db.Entry(inversor).State = EntityState.Modified;
-    //            db.SaveChanges();
-    //            return RedirectToAction("Index");
-    //        }
-    //        return View(inversor);
-    //    }
 
-    //    // GET: Inversors/Delete/5
-    //    public ActionResult Delete(string id)
-    //    {
-    //        if (id == null)
-    //        {
-    //            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-    //        }
-    //        Inversor inversor = db.Inversores.Find(id);
-    //        if (inversor == null)
-    //        {
-    //            return HttpNotFound();
-    //        }
-    //        return View(inversor);
-    //    }
+        //    // GET: Inversors/Details/5
+        //    public ActionResult Details(string id)
+        //    {
+        //        if (id == null)
+        //        {
+        //            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //        }
+        //        Inversor inversor = db.Inversores.Find(id);
+        //        if (inversor == null)
+        //        {
+        //            return HttpNotFound();
+        //        }
+        //        return View(inversor);
+        //    }
 
-    //    // POST: Inversors/Delete/5
-    //    [HttpPost, ActionName("Delete")]
-    //    [ValidateAntiForgeryToken]
-    //    public ActionResult DeleteConfirmed(string id)
-    //    {
-    //        Inversor inversor = db.Inversores.Find(id);
-    //        db.Usuarios.Remove(inversor);
-    //        db.SaveChanges();
-    //        return RedirectToAction("Index");
-    //    }
+        //    // GET: Inversors/Create
+        //    public ActionResult Create()
+        //    {
+        //        return View();
+        //    }
 
-    //    protected override void Dispose(bool disposing)
-    //    {
-    //        if (disposing)
-    //        {
-    //            db.Dispose();
-    //        }
-    //        base.Dispose(disposing);
-    //    }
+        //    // POST: Inversors/Create
+        //    // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
+        //    // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
+        //    [HttpPost]
+        //    [ValidateAntiForgeryToken]
+        //    public ActionResult Create([Bind(Include = "cedula,nombre,apellido,fechaNacimiento,password,celular,email,montoInversion,presentacion")] Inversor inversor)
+        //    {
+        //        if (ModelState.IsValid)
+        //        {
+        //            db.Usuarios.Add(inversor);
+        //            db.SaveChanges();
+        //            return RedirectToAction("Index");
+        //        }
+
+        //        return View(inversor);
+        //    }
+
+        //    // GET: Inversors/Edit/5
+        //    public ActionResult Edit(string id)
+        //    {
+        //        if (id == null)
+        //        {
+        //            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //        }
+        //        Inversor inversor = db.Inversores.Find(id);
+        //        if (inversor == null)
+        //        {
+        //            return HttpNotFound();
+        //        }
+        //        return View(inversor);
+        //    }
+
+        //    // POST: Inversors/Edit/5
+        //    // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
+        //    // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
+        //    [HttpPost]
+        //    [ValidateAntiForgeryToken]
+        //    public ActionResult Edit([Bind(Include = "cedula,nombre,apellido,fechaNacimiento,password,celular,email,montoInversion,presentacion")] Inversor inversor)
+        //    {
+        //        if (ModelState.IsValid)
+        //        {
+        //            db.Entry(inversor).State = EntityState.Modified;
+        //            db.SaveChanges();
+        //            return RedirectToAction("Index");
+        //        }
+        //        return View(inversor);
+        //    }
+
+        //    // GET: Inversors/Delete/5
+        //    public ActionResult Delete(string id)
+        //    {
+        //        if (id == null)
+        //        {
+        //            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //        }
+        //        Inversor inversor = db.Inversores.Find(id);
+        //        if (inversor == null)
+        //        {
+        //            return HttpNotFound();
+        //        }
+        //        return View(inversor);
+        //    }
+
+        //    // POST: Inversors/Delete/5
+        //    [HttpPost, ActionName("Delete")]
+        //    [ValidateAntiForgeryToken]
+        //    public ActionResult DeleteConfirmed(string id)
+        //    {
+        //        Inversor inversor = db.Inversores.Find(id);
+        //        db.Usuarios.Remove(inversor);
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
+
+        //    protected override void Dispose(bool disposing)
+        //    {
+        //        if (disposing)
+        //        {
+        //            db.Dispose();
+        //        }
+        //        base.Dispose(disposing);
+        //    }
     }
 }

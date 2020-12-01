@@ -40,6 +40,37 @@ namespace WebApiObligatorio2.Controllers
 
         }
 
+        [HttpGet]
+        [Route("busqueda")]
+        public IHttpActionResult Buscar([FromUri] Models.BusquedaModel datos)
+        {
+            //Búsqueda por refinaciones sucesivas (AND)
+            var resultado = repoProy.Buscar(datos.fechaIni, datos.fechaFin, datos.cedula, datos.titulo, datos.descripcion,datos.estado, datos.monto);
+            if (resultado != null)
+            {
+                return Ok(resultado.Select(p => new Models.ProyectoModel
+                {
+                    titulo = p.titulo,
+                    descripcion = p.descripcion,
+                    monto = p.monto,
+                    cuotas = p.cuotas,
+                    rutaImagen = p.rutaImagen,
+                    estado=p.estado,
+                    fechaPresentacion=p.fechaPresentacion,
+                    //Votantes =
+                    //    p.Votantes
+                    //    .Select(v => new Models.VotanteModel
+                    //    {
+                    //        Nombre = v.Nombre,
+                    //        Id = v.Id
+                    //    })
+                }).ToList());
+            }
+            else
+                return NotFound();
+        }
+
+
         // POST: api/Proyecto
         public void Post([FromBody]string value)
         {
@@ -54,5 +85,9 @@ namespace WebApiObligatorio2.Controllers
         public void Delete(int id)
         {
         }
+
+
+
+
     }
 }

@@ -130,9 +130,44 @@ namespace Repositorios
             }
 
         }
+        public IEnumerable<Proyecto> Buscar(DateTime fechaini, DateTime fechaFin, string cedula, string titulo, string descripcion, string estado, decimal? monto)
+        {
+            PrestamosContext db = new PrestamosContext();
+            var proyectos = from p in db.Proyectos select p;
+            if (fechaini != null && fechaFin != null)
+            {
+                proyectos = proyectos.Where(p => p.fechaPresentacion >= fechaini && p.fechaPresentacion <= fechaFin);
+            }
+
+            if (!String.IsNullOrEmpty(cedula))
+            {
+                proyectos = proyectos.Where(p => p.solicitante.cedula.Contains(cedula));
+            }
+            if (fechaini != null && fechaFin != null)
+            {
+                proyectos = proyectos.Where(p => p.fechaPresentacion >= fechaini && p.fechaPresentacion <= fechaFin);
+            }
+            if (!String.IsNullOrEmpty(titulo))
+            {
+                proyectos = proyectos.Where(p => p.titulo.Contains(titulo));
+            }
+            if (!String.IsNullOrEmpty(descripcion))
+            {
+                proyectos = proyectos.Where(p => p.descripcion.Contains(descripcion));
+            }
+            if (monto!= null)
+            {
+                proyectos = proyectos.Where(p => p.monto >= monto);
+            }
+            return proyectos.ToList();
+        }
+
+
+
+
+
+
     }
-
-
 
 }
 
