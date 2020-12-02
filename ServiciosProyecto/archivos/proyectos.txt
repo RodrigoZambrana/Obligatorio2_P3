@@ -1,2 +1,1 @@
-﻿10|44406412|educiación 5.0|un progama de educacion a distancia|100000|24|8|43000|01/08/2019|imagen.jpg|personal|mucha experiencia
-11|44406412|educiación 5.0|un progama de educacion a distancia|100000|24|8|43000|01/08/2019|imagen.jpg|personal|mucha experiencia
+﻿44406412|otro proyecto|una prueba|5000|2|8|01/08/2019|imagen.jpg|cooperativo|15

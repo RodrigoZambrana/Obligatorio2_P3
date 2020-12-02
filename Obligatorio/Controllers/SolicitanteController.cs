@@ -50,6 +50,28 @@ namespace Obligatorio.Controllers
                 return View("Index");
             }
         }
+
+        //Inversor/Filtrar
+        public ActionResult Filtrar(DateTime? fechaini, DateTime? fechaFin, string titulo, string descripcion, string estado, decimal? monto)
+        {
+            string cedula = (string)Session["usuario"];
+            string ruta = $"{proyectoUri}/busqueda/?fechaIni={fechaini}&fechaFin={fechaFin}&cedula={cedula}&titulo={titulo}&descripcion={descripcion}&estado={estado}&monto={monto}";
+
+            Uri uri = new Uri(ruta);
+            var response = cliente.GetAsync(uri).Result;
+            if (response.IsSuccessStatusCode)
+            {
+                var lista = response.Content.ReadAsAsync<IEnumerable<ProyectoModel>>().Result;
+                ViewBag.Mensaje = $"Se encontraron {lista.Count()} resultados";
+                return View(lista);
+            }
+            ViewBag.Mensaje = "No se encontraron resultados";
+            return View();
+        }
+
+
+
+    
         //public ActionResult Details(int? id)
         //{
         //    if (id == null)

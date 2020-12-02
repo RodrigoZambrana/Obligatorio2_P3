@@ -1,14 +1,40 @@
 ﻿@model IEnumerable<Obligatorio.Models.ProyectoModel>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Filtrar";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<h2>Filtrar</h2>
+<form method="get" action="/Solicitante/Filtrar">
+    <div class="form-group">
+        <label for="formGroupExampleInput">Fecha Inicio</label>
+        <input type="text" class="form-control" name="fechaIni" id="fechaIni" placeholder="Ingrese la fecha de Solicitud">
+        <label for="formGroupExampleInput">Fecha Fin</label>
+        <input type="text" class="form-control" name="fechaFin" id="fechaFin" placeholder="Ingrese la fecha de Solicitud">
+        <label for="formGroupExampleInput">Título</label>
+        <input type="text" class="form-control" name="titulo" id="titulo" placeholder="Ingrese Texto a Buscar">
+        <label for="formGroupExampleInput">Descripcion</label>
+        <input type="text" class="form-control" name="descripcion" id="descripcion" placeholder="Ingrese Texto a Buscar">
+        <label for="formGroupExampleInput">Estado</label>
+        <input type="text" class="form-control" name="estado" id="estado" placeholder="Ingrese el Estado ">
+        <label for="formGroupExampleInput">Monto solicitado</label>
+        <input type="text" class="form-control" name="monto" id="moto" placeholder="Ingrese el Estado ">
+        <input type="submit" class="btn btn-black" id="btnFiltrar" value="Buscar" />
+    </div>
 
-<h2>Mi lista de proyectos</h2>
+</form>
+@if (ViewBag.Mensaje != null)
+{
 
-<p>
-</p>
+    <div class="alert alert-info">
+
+        @ViewBag.Mensaje
+
+    </div>
+
+}
+ @{ if (Model != null)
+     {
 <table class="table">
     <tr>
         <th>
@@ -34,6 +60,9 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.puntaje)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tipo)
         </th>
         <th></th>
     </tr>
@@ -66,6 +95,9 @@
                 @Html.DisplayFor(modelItem => item.puntaje)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.tipo)
+            </td>
+            <td>
                 @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
                 @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
                 @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
@@ -74,3 +106,5 @@
     }
 
 </table>
+         }
+     }

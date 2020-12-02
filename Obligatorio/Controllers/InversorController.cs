@@ -57,7 +57,6 @@ namespace Obligatorio.Controllers
         public ActionResult Filtrar(DateTime? fechaini, DateTime? fechaFin, string cedula, string titulo, string descripcion, string estado, decimal? monto) {
             string ruta = $"{proyectoUri}/busqueda/?fechaIni={fechaini}&fechaFin={fechaFin}&cedula={cedula}&titulo={titulo}&descripcion={descripcion}&estado={estado}&monto={monto}";
             Uri uri = new Uri(ruta);
-
             var response = cliente.GetAsync(uri).Result;
             if (response.IsSuccessStatusCode)
             {

@@ -31,20 +31,20 @@ namespace ServiciosProyecto
                         while (linea != null)
                         {
                         var lineaVec = linea.Split("|".ToCharArray());
-                        string tipo = lineaVec[10].ToString();
+                        string tipo = lineaVec[8].ToString();
                         if (tipo == "cooperativo")
                         {
                             Cooperativo c = new Cooperativo{
-                                id= int.Parse(lineaVec[0]),
-                                solicitante=(Solicitante)repoU.FindById(lineaVec[1].ToString()),
-                                titulo = lineaVec[2].ToString(),
-                                descripcion = lineaVec[3].ToString(),
-                                monto = decimal.Parse(lineaVec[4]),
-                                cuotas = int.Parse(lineaVec[5]),
-                                tasaInteres= Decimal.Parse(lineaVec[6]),
-                                fechaPresentacion = DateTime.Parse(lineaVec[8]),
-                                rutaImagen = lineaVec[9].ToString(),
-                                cantIntegrantes= int.Parse(lineaVec[11])
+                                //id= int.Parse(lineaVec[0]),
+                                solicitante = (Solicitante)repoU.FindById(lineaVec[0].ToString()),
+                                titulo = lineaVec[1].ToString(),
+                                descripcion = lineaVec[2].ToString(),
+                                monto = decimal.Parse(lineaVec[3]),
+                                cuotas = int.Parse(lineaVec[4]),
+                                tasaInteres = Decimal.Parse(lineaVec[5]),
+                                fechaPresentacion = DateTime.Parse(lineaVec[6]),
+                                rutaImagen = lineaVec[7].ToString(),
+                                cantIntegrantes = int.Parse(lineaVec[9])
                             };
                             repoProyectos.Add(c);
                         }
@@ -52,16 +52,16 @@ namespace ServiciosProyecto
                         {
                             Personal p = new Personal
                             {
-                                id = int.Parse(lineaVec[0]),
-                                solicitante = (Solicitante)repoU.FindById(lineaVec[1].ToString()),
-                                titulo = lineaVec[2].ToString(),
-                                descripcion = lineaVec[3].ToString(),
-                                monto = decimal.Parse(lineaVec[4]),
-                                cuotas = int.Parse(lineaVec[5]),
-                                tasaInteres = Decimal.Parse(lineaVec[6]),
-                                fechaPresentacion = DateTime.Parse(lineaVec[8]),
-                                rutaImagen = lineaVec[9].ToString(),
-                                experiencia = lineaVec[11].ToString()
+                                // id = int.Parse(lineaVec[0]),
+                                solicitante = (Solicitante)repoU.FindById(lineaVec[0].ToString()),
+                                titulo = lineaVec[1].ToString(),
+                                descripcion = lineaVec[2].ToString(),
+                                monto = decimal.Parse(lineaVec[3]),
+                                cuotas = int.Parse(lineaVec[4]),
+                                tasaInteres = Decimal.Parse(lineaVec[5]),
+                                fechaPresentacion = DateTime.Parse(lineaVec[6]),
+                                rutaImagen = lineaVec[7].ToString(),
+                                experiencia = lineaVec[9].ToString()
                             };
                             repoProyectos.Add(p);
                         }
