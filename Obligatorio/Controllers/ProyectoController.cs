@@ -68,7 +68,7 @@ namespace Obligatorio.Controllers
                     return  RedirectToAction("Index", "Inversor", lista);
                 }
                 ViewBag.Mensaje = "No se encontraron resultados";
-                return View("Index", "Inversor");
+                return View("Index", "Inversor",new List<ProyectoModel>());
             }
             if (rol == "SOLICITANTE")
             {
