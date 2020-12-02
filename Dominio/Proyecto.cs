@@ -16,9 +16,9 @@ namespace Dominio
         [Required]
         public string descripcion{ get; set; }
         [Required]
-        public static decimal monto{ get; set; }
+        public decimal monto{ get; set; }
         //monto que se irá descontando a medida que se realicen inversiones
-        public decimal montoRestante { get; set; } = monto;
+        public decimal montoRestante { get; set; }
         [Required]
         public int cuotas{ get; set; }
         [Required]

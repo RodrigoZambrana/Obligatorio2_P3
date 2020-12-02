@@ -11,12 +11,12 @@ namespace Dominio
     [Table("Inversiones")]
    public class Inversion
     {
+        [Key]
+        public int id;
         [Required]
-        public int idProyecto { get; set; }
-
+        public int proyectoId { get; set; }
         [Required]
         public DateTime fechaHora{ get; set; }
-
         [Required]
         public decimal montoInversion { get; set; }
 
