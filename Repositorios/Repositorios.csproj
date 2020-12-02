@@ -53,9 +53,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAL\PrestamosContext.cs" />
-    <Compile Include="RepositorioConfiguraciones.cs" />
     <Compile Include="Conexion.cs" />
     <Compile Include="RepositorioProyectos.cs" />
+    <Compile Include="RepositorioInversor.cs" />
     <Compile Include="RepositorioUsuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -25,5 +25,7 @@ namespace Dominio
         [StringLength(500, ErrorMessage = "La presentación no puede tener mas de 500 caracteres")]
         public string presentacion { get; set; }
 
+        public virtual ICollection<Inversion> Inversiones { get; set; }
+
     }
 }

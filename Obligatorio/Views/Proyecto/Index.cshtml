@@ -65,9 +65,7 @@
             @Html.DisplayFor(modelItem => item.puntaje)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Financiar", "Details", new { id=item.id}) |
         </td>
     </tr>
 }

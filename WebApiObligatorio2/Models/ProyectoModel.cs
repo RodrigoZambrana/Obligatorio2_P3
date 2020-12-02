@@ -10,6 +10,8 @@ namespace WebApiObligatorio2.Models
 
     {
         //agregar solicitante e id
+        public int id { get; set; }
+        public string cedula { get; set; }
         public string titulo { get; set; }
         public string descripcion { get; set; }
         public decimal monto { get; set; }

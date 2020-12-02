@@ -195,6 +195,7 @@
     <Content Include="Views\Inversor\Filtrar.cshtml" />
     <Content Include="Views\Solicitante\Filtrar.cshtml" />
     <Content Include="Views\Inversor\Create.cshtml" />
+    <Content Include="Views\Inversor\Financiar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

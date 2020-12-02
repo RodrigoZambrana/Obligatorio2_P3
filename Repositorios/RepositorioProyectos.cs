@@ -109,9 +109,6 @@ namespace Repositorios
             {
                 return false;
             }
-
-
-
         }
         public IEnumerable<Proyecto> FindProyectoPorUsuario(string cedula)
         {
@@ -157,12 +154,6 @@ namespace Repositorios
             }
             return proyectos.ToList();
         }
-
-
-
-
-
-
     }
 
 }

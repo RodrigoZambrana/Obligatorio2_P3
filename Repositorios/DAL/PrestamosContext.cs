@@ -13,13 +13,10 @@ namespace Repositorios.DAL
         public DbSet<Proyecto> Proyectos { get; set; }
         public DbSet<Cooperativo> Cooperativos { get; set; }
         public DbSet<Personal> Personales { get; set; }
-
         public DbSet<Usuario> Usuarios { get; set; }
-
         public DbSet<Solicitante> Solicitantes { get; set; }
-
-
         public DbSet<Inversor> Inversores { get; set; }
+        public DbSet<Inversion> Inversiones { get; set; }
 
         public PrestamosContext() : base("miConexion")
         {

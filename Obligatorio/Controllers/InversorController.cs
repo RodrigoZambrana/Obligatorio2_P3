@@ -76,32 +76,6 @@ namespace Obligatorio.Controllers
             return View();
         }
 
-
-
-
-
-
-
-
-
-
-
-
-        //    // GET: Inversors/Details/5
-        //    public ActionResult Details(string id)
-        //    {
-        //        if (id == null)
-        //        {
-        //            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //        }
-        //        Inversor inversor = db.Inversores.Find(id);
-        //        if (inversor == null)
-        //        {
-        //            return HttpNotFound();
-        //        }
-        //        return View(inversor);
-        //    }
-
         // GET: Inversors/Create
         public ActionResult Create()
         {
@@ -125,70 +99,42 @@ namespace Obligatorio.Controllers
                   return View(inversor);
              }
 
-            //    // GET: Inversors/Edit/5
-            //    public ActionResult Edit(string id)
-            //    {
-            //        if (id == null)
-            //        {
-            //            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            //        }
-            //        Inversor inversor = db.Inversores.Find(id);
-            //        if (inversor == null)
-            //        {
-            //            return HttpNotFound();
-            //        }
-            //        return View(inversor);
-            //    }
+        // GET: Inversor/Details/5
+        public ActionResult Financiar(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Proyecto p = db.Proyectos.Find(id);
+            if (p == null)
+            {
+                return HttpNotFound();
+            }
 
-            //    // POST: Inversors/Edit/5
-            //    // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
-            //    // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
-            //    [HttpPost]
-            //    [ValidateAntiForgeryToken]
-            //    public ActionResult Edit([Bind(Include = "cedula,nombre,apellido,fechaNacimiento,password,celular,email,montoInversion,presentacion")] Inversor inversor)
-            //    {
-            //        if (ModelState.IsValid)
-            //        {
-            //            db.Entry(inversor).State = EntityState.Modified;
-            //            db.SaveChanges();
-            //            return RedirectToAction("Index");
-            //        }
-            //        return View(inversor);
-            //    }
+            ProyectoModel m = new ProyectoModel
+            {
+                id = p.id,
+                cedula = p.cedula,
+                titulo = p.titulo,
+                descripcion = p.descripcion,
+                monto = p.monto,
+                cuotas = p.cuotas,
+                rutaImagen = p.rutaImagen,
+                estado = p.estado,
+                fechaPresentacion = p.fechaPresentacion
+            };
 
-            //    // GET: Inversors/Delete/5
-            //    public ActionResult Delete(string id)
-            //    {
-            //        if (id == null)
-            //        {
-            //            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            //        }
-            //        Inversor inversor = db.Inversores.Find(id);
-            //        if (inversor == null)
-            //        {
-            //            return HttpNotFound();
-            //        }
-            //        return View(inversor);
-            //    }
-
-            //    // POST: Inversors/Delete/5
-            //    [HttpPost, ActionName("Delete")]
-            //    [ValidateAntiForgeryToken]
-            //    public ActionResult DeleteConfirmed(string id)
-            //    {
-            //        Inversor inversor = db.Inversores.Find(id);
-            //        db.Usuarios.Remove(inversor);
-            //        db.SaveChanges();
-            //        return RedirectToAction("Index");
-            //    }
-
-            //    protected override void Dispose(bool disposing)
-            //    {
-            //        if (disposing)
-            //        {
-            //            db.Dispose();
-            //        }
-            //        base.Dispose(disposing);
-            //    }
+            return View(m);
         }
+      
+        //    protected override void Dispose(bool disposing)
+        //    {
+        //        if (disposing)
+        //        {
+        //            db.Dispose();
+        //        }
+        //        base.Dispose(disposing);
+        //    }
+    }
 }

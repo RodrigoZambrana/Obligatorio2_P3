@@ -50,6 +50,8 @@ namespace WebApiObligatorio2.Controllers
             {
                 return Ok(resultado.Select(p => new Models.ProyectoModel
                 {
+                    id=p.id,
+                    cedula=p.cedula,
                     titulo = p.titulo,
                     descripcion = p.descripcion,
                     monto = p.monto,
@@ -57,13 +59,6 @@ namespace WebApiObligatorio2.Controllers
                     rutaImagen = p.rutaImagen,
                     estado=p.estado,
                     fechaPresentacion=p.fechaPresentacion,
-                    //Votantes =
-                    //    p.Votantes
-                    //    .Select(v => new Models.VotanteModel
-                    //    {
-                    //        Nombre = v.Nombre,
-                    //        Id = v.Id
-                    //    })
                 }).ToList());
             }
             else

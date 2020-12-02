@@ -24,10 +24,10 @@
                     @if (Session["rol"] != null)
                     {
 
-                        if ((string)Session["rol"] == "ADMIN")
+                        if ((string)Session["rol"] == "INVERSOR")
                         {
-                            <li>@Html.ActionLink("Home", "Index", "Admin")</li>
-                            <li>@Html.ActionLink("Archivo Proyecto", "Index", "ArchivoProyecto")</li>
+                            <li>@Html.ActionLink("Lista de Proyectos", "Index", "Inversor")</li>
+                            <li>@Html.ActionLink("Filtrar proyectos", "Filtrar", "Inversor")</li>
                             
 
                         }
