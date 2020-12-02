@@ -98,6 +98,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\BusquedaModel.cs" />
+    <Compile Include="Models\InvertirModel.cs" />
     <Compile Include="Models\ProyectoModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
