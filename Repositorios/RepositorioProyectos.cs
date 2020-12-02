@@ -153,7 +153,7 @@ namespace Repositorios
             }
             if (monto!=0)
             {
-                proyectos = proyectos.Where(proy => proy.monto >= monto);
+                proyectos = proyectos.Where(proy => proy.monto <= monto);
             }
             return proyectos.ToList();
         }

@@ -51,7 +51,15 @@ namespace Obligatorio.Controllers
             }
         }
 
+
+        public ActionResult Filtrar() {
+            return View();
+        }
+
+
+
         //Inversor/Filtrar
+        [HttpPost]
         public ActionResult Filtrar(DateTime? fechaini, DateTime? fechaFin, string titulo, string descripcion, string estado, decimal? monto)
         {
             string cedula = (string)Session["usuario"];
