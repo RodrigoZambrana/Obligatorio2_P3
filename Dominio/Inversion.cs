@@ -11,14 +11,17 @@ namespace Dominio
     [Table("Inversiones")]
    public class Inversion
     {
-        [Key]
-        public int id;
         [Required]
-        public int proyectoId { get; set; }
+        [Key]
+        public int id { get; set; }
+        [ForeignKey("unProyecto")] public int idProyecto { get; set; }
+        public Proyecto unProyecto { get; set; }
         [Required]
         public DateTime fechaHora{ get; set; }
         [Required]
         public decimal montoInversion { get; set; }
+
+
 
     }
 }
