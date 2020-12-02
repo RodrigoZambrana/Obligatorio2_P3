@@ -9,6 +9,7 @@ namespace Dominio
     [Table("Proyectos")]
     public class Proyecto
 	{
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int id { get; set; }
         [Required]
         public string titulo{ get; set; }
@@ -28,7 +29,9 @@ namespace Dominio
         public decimal tasaInteres{ get; set; }
         private cambioEstado cambioEstado;
         public Solicitante solicitante { get; set; }
-     
+        public string cedula { get; set; }
+
+
         public void setSolicitante(Solicitante u)
         {
             this.solicitante = u;

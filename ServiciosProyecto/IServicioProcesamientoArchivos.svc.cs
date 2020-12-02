@@ -27,47 +27,55 @@ namespace ServiciosProyecto
                 //tipo exp o cant int
                 using (StreamReader sr = new StreamReader(Path.Combine(ruta, "proyectos.txt")))
                     {
-                        string linea = sr.ReadLine();                 
-                        while (linea != null)
-                        {
+                        string linea = sr.ReadLine();
+                    while (linea != null)
+                    {
                         var lineaVec = linea.Split("|".ToCharArray());
                         string tipo = lineaVec[8].ToString();
-                        if (tipo == "cooperativo")
-                        {
-                            Cooperativo c = new Cooperativo{
-                                //id= int.Parse(lineaVec[0]),
-                                solicitante = (Solicitante)repoU.FindById(lineaVec[0].ToString()),
-                                titulo = lineaVec[1].ToString(),
-                                descripcion = lineaVec[2].ToString(),
-                                monto = decimal.Parse(lineaVec[3]),
-                                cuotas = int.Parse(lineaVec[4]),
-                                tasaInteres = Decimal.Parse(lineaVec[5]),
-                                fechaPresentacion = DateTime.Parse(lineaVec[6]),
-                                rutaImagen = lineaVec[7].ToString(),
-                                cantIntegrantes = int.Parse(lineaVec[9])
-                            };
-                            repoProyectos.Add(c);
-                        }
-                        else
-                        {
-                            Personal p = new Personal
+                        int id = int.Parse(lineaVec[10]);
+                        //if (repoProyectos.FindById(id) == null)
+                        //{
+                            if (tipo == "cooperativo")
                             {
-                                // id = int.Parse(lineaVec[0]),
-                                solicitante = (Solicitante)repoU.FindById(lineaVec[0].ToString()),
-                                titulo = lineaVec[1].ToString(),
-                                descripcion = lineaVec[2].ToString(),
-                                monto = decimal.Parse(lineaVec[3]),
-                                cuotas = int.Parse(lineaVec[4]),
-                                tasaInteres = Decimal.Parse(lineaVec[5]),
-                                fechaPresentacion = DateTime.Parse(lineaVec[6]),
-                                rutaImagen = lineaVec[7].ToString(),
-                                experiencia = lineaVec[9].ToString()
-                            };
-                            repoProyectos.Add(p);
-                        }
+                                Cooperativo c = new Cooperativo
+                                {
+                                    //id= int.Parse(lineaVec[0]),
+                                    cedula = lineaVec[0].ToString(),
+                                    titulo = lineaVec[1].ToString(),
+                                    descripcion = lineaVec[2].ToString(),
+                                    monto = decimal.Parse(lineaVec[3]),
+                                    cuotas = int.Parse(lineaVec[4]),
+                                    tasaInteres = Decimal.Parse(lineaVec[5]),
+                                    fechaPresentacion = DateTime.Parse(lineaVec[6]),
+                                    rutaImagen = lineaVec[7].ToString(),
+                                    cantIntegrantes = int.Parse(lineaVec[9]),
+                                    id = int.Parse(lineaVec[10])
+                                };
+                                repoProyectos.Add(c);
+                            }
+                            else
+                            {
+                                Personal p = new Personal
+                                {
+                                    // id = int.Parse(lineaVec[0]),
+                                    cedula = lineaVec[0].ToString(),
+                                    titulo = lineaVec[1].ToString(),
+                                    descripcion = lineaVec[2].ToString(),
+                                    monto = decimal.Parse(lineaVec[3]),
+                                    cuotas = int.Parse(lineaVec[4]),
+                                    tasaInteres = Decimal.Parse(lineaVec[5]),
+                                    fechaPresentacion = DateTime.Parse(lineaVec[6]),
+                                    rutaImagen = lineaVec[7].ToString(),
+                                    experiencia = lineaVec[9].ToString(),
+                                    id = int.Parse(lineaVec[10])
+                                };
+                                repoProyectos.Add(p);
+                            }
                             linea = sr.ReadLine();
                         }
+                        //linea = sr.ReadLine();
                     }
+                   // }
                     return cont;
                 }
                 catch (Exception ex)

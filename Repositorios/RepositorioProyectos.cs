@@ -53,7 +53,7 @@ namespace Repositorios
         {
             try
             {
-                string idProyecto = (string)clave;
+                int idProyecto = (int)clave;
                 using (db)
                 {
                     Proyecto unProyecto = db.Proyectos.Find(idProyecto);
