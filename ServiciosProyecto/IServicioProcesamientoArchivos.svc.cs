@@ -15,11 +15,8 @@ namespace ServiciosProyecto
     // NOTA: para iniciar el Cliente de prueba WCF para probar este servicio, seleccione Service1.svc o Service1.svc.cs en el Explorador de soluciones e inicie la depuración.
     public class ServicioProcesamientoArchivos : IServicioProcesamientoArchivos
     {
-
             private RepositorioProyectos repoProyectos = new RepositorioProyectos();
-
             private string ruta = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "archivos");
-
             public int ImportarProyectos()
             {
                 int cont = 0;
@@ -30,8 +27,7 @@ namespace ServiciosProyecto
                 //tipo exp o cant int
                 using (StreamReader sr = new StreamReader(Path.Combine(ruta, "proyectos.txt")))
                     {
-                        string linea = sr.ReadLine();
-                   
+                        string linea = sr.ReadLine();                 
                         while (linea != null)
                         {
                         var lineaVec = linea.Split("|".ToCharArray());
@@ -79,13 +75,11 @@ namespace ServiciosProyecto
                     return 0;
                 }
             }
-
         public int ImportarSolicitantes()
             {
                 RepositorioUsuarios repoUsuarios = new RepositorioUsuarios();
                 int cont = 0;
                 StreamReader sr = new StreamReader(Path.Combine(ruta, "solicitantes.txt"));
-
                 string linea = sr.ReadLine();
                 while (linea != null)
                 {

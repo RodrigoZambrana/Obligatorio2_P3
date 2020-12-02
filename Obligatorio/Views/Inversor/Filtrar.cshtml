@@ -1,11 +1,42 @@
 ﻿@model IEnumerable<Obligatorio.Models.ProyectoModel>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Filtrar";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<h2>Filtrar</h2>
+<form method="get" action="/Inversor/Filtrar">
+    <div class="form-group">
+        <label for="formGroupExampleInput">Fecha Inicio</label>
+        <input type="text" class="form-control" name="fechaIni" id="fechaIni" placeholder="Ingrese la fecha de Solicitud">
+        <label for="formGroupExampleInput">Fecha Fin</label>
+        <input type="text" class="form-control" name="fechaFin" id="fechaFin" placeholder="Ingrese la fecha de Solicitud">
+        <label for="formGroupExampleInput">Cédula</label>
+        <input type="text" class="form-control" name="cedula" id="cedula" placeholder="Ingrese la Cédula">¡
+        <label for="formGroupExampleInput">Título</label>
+        <input type="text" class="form-control" name="titulo" id="titulo" placeholder="Ingrese Texto a Buscar">
+        <label for="formGroupExampleInput">Descripcion</label>
+        <input type="text" class="form-control" name="descripcion" id="descripcion" placeholder="Ingrese Texto a Buscar">
+        <label for="formGroupExampleInput">Estado</label>
+        <input type="text" class="form-control" name="estado" id="estado" placeholder="Ingrese el Estado ">
+        <label for="formGroupExampleInput">Monto solicitado</label>
+        <input type="text" class="form-control" name="monto" id="moto" placeholder="Ingrese el Estado ">
+        <input type="submit" class="btn btn-black" id="btnFiltrar" value="Buscar" />
+    </div>
 
-<h2>Listado de proyectos</h2>
+</form>
+@if (ViewBag.Mensaje != null)
+{
+
+    <div class="alert alert-info">
+
+        @ViewBag.Mensaje
+
+    </div>
+
+}
+ @{ if (Model != null)
+     {
 <table class="table">
     <tr>
         <th>
@@ -77,3 +108,5 @@
     }
 
 </table>
+         }
+     }
