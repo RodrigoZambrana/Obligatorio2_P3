@@ -3,14 +3,12 @@
 @{
     ViewBag.Title = "Index";
 }
-
 <h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.rutaImagen)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.titulo)
         </th>
@@ -22,10 +20,7 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.cuotas)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.rutaImagen)
-        </th>
+
         <th>
             @Html.DisplayNameFor(model => model.estado)
         </th>
@@ -41,6 +36,9 @@
 @foreach (var item in Model) {
     <tr>
         <td>
+            @Html.DisplayFor(modelItem => item.rutaImagen)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.titulo)
         </td>
         <td>
@@ -52,9 +50,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.cuotas)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.rutaImagen)
-        </td>
+
         <td>
             @Html.DisplayFor(modelItem => item.estado)
         </td>
@@ -62,11 +58,9 @@
             @Html.DisplayFor(modelItem => item.fechaPresentacion)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.puntaje)
+            @Html.DisplayFor(modelItem => item.cedula)
         </td>
-        <td>
-            @Html.ActionLink("Financiar", "Details", new { id=item.id}) |
-        </td>
+
     </tr>
 }
 
