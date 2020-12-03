@@ -19,41 +19,35 @@ namespace Obligatorio.Controllers
         private PrestamosContext db = new PrestamosContext();
         HttpClient cliente = new HttpClient();
         HttpResponseMessage response = new HttpResponseMessage();
-        Uri proyectoUri = null;
+        Uri inversorUri = null;
 
         public InversorController()
         {
             cliente.BaseAddress = new Uri("http://localhost:31069");
-            proyectoUri = new Uri("http://localhost:52230/api/proyecto");
+            inversorUri = new Uri("http://localhost:52230/api/inversor");
             cliente.DefaultRequestHeaders.Accept.Clear();
             cliente.DefaultRequestHeaders.Accept.Add(
        new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
-            // GET: Inversor
-            public ActionResult Index()
+        // GET: Inversor
+       // [Route("api/inversor/inversiones/{cedula}")]
+        public ActionResult Index()
         {
-            response = cliente.GetAsync(proyectoUri).Result;
+            string cedula = (string)Session["usuario"];
+            string ruta = $"{inversorUri}/inversiones/?cedula={cedula}";
+            Uri uri = new Uri(ruta);
+            var response = cliente.GetAsync(uri).Result;
             if (response.IsSuccessStatusCode)
             {
-                var proys = response.Content.ReadAsAsync<IEnumerable<Models.ProyectoModel>>().Result;
-                /*   var lista = prods.Select
-                       (p => new Models.ProductoModel { Nombre = p.Nombre, Precio = p.Precio, Id = p.Id });*/
-
-                if (proys != null && proys.Count() > 0)
-                    return View("Index", proys.ToList());
-                else
-                {
-                    TempData["ResultadoOperacion"] = "No hay proyectos disponibles";
-                    return View("Index", new List<ProyectoModel>());
-                }
+                var lista = response.Content.ReadAsAsync<IEnumerable<Inversion>>().Result;
+                ViewBag.Mensaje = $"Se encontraron {lista.Count()} resultados";
+                return View(lista);
             }
-            else
-            {
-                TempData["ResultadoOperacion"] = "Error desconocido";
-                return View("Index");
-            }
+            ViewBag.Mensaje = "No se encontraron resultados";
+            return View();
         }
+    
 
         public ActionResult Filtrar()
         {
@@ -63,7 +57,7 @@ namespace Obligatorio.Controllers
         //Inversor/Filtrar
         [HttpPost]
         public ActionResult Filtrar(DateTime? fechaini, DateTime? fechaFin, string cedula, string titulo, string descripcion, string estado, decimal? monto) {
-            string ruta = $"{proyectoUri}/busqueda/?fechaIni={fechaini}&fechaFin={fechaFin}&cedula={cedula}&titulo={titulo}&descripcion={descripcion}&estado={estado}&monto={monto}";
+            string ruta = $"{inversorUri}/busqueda/?fechaIni={fechaini}&fechaFin={fechaFin}&cedula={cedula}&titulo={titulo}&descripcion={descripcion}&estado={estado}&monto={monto}";
             Uri uri = new Uri(ruta);
             var response = cliente.GetAsync(uri).Result;
             if (response.IsSuccessStatusCode)
@@ -96,8 +90,8 @@ namespace Obligatorio.Controllers
                 return RedirectToAction("Index");
             }
 
-                  return View(inversor);
-             }
+            return View(inversor);
+        }
 
         // GET: Inversor/Details/5
         public ActionResult Financiar(int? id)
@@ -127,7 +121,23 @@ namespace Obligatorio.Controllers
 
             return View(m);
         }
-      
+
+        //public ActionResult InversionesInversor() {
+        //    string cedula = (string)Session["usuario"];
+        //    string ruta = $"{inversorUri}/inversiones/?cedula={cedula}";
+        //    Uri uri = new Uri(ruta);
+        //    var response = cliente.GetAsync(uri).Result;
+        //    if (response.IsSuccessStatusCode)
+        //    {
+        //        var lista = response.Content.ReadAsAsync<IEnumerable<Inversion>>().Result;
+        //        ViewBag.Mensaje = $"Se encontraron {lista.Count()} resultados";
+        //        return View(lista);
+        //    }
+        //    ViewBag.Mensaje = "No se encontraron resultados";
+        //    return View();
+        //}
+    }
+
         //    protected override void Dispose(bool disposing)
         //    {
         //        if (disposing)
@@ -137,4 +147,3 @@ namespace Obligatorio.Controllers
         //        base.Dispose(disposing);
         //    }
     }
-}

@@ -31,6 +31,7 @@ namespace Dominio
         public decimal tasaInteres{ get; set; }
         private cambioEstado cambioEstado;
         public Solicitante solicitante { get; set; }
+       [ForeignKey("solicitante")]
         public string cedula { get; set; }
 
 

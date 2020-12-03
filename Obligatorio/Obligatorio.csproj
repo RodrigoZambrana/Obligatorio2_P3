@@ -133,7 +133,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ControladoresArchivos\ArchivoOUsuariosController.cs" />
     <Compile Include="Controllers\ControladoresArchivos\ArchivoProyectoController.cs" />
-    <Compile Include="Controllers\Datetime.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InversorController.cs" />
     <Compile Include="Controllers\ProyectoController.cs" />
@@ -191,11 +190,11 @@
     <Content Include="Views\Proyecto\Confirmar.cshtml" />
     <Content Include="Views\Proyecto\Details.cshtml" />
     <Content Include="Views\Solicitante\Index.cshtml" />
-    <Content Include="Views\Inversor\Index.cshtml" />
     <Content Include="Views\Inversor\Filtrar.cshtml" />
     <Content Include="Views\Solicitante\Filtrar.cshtml" />
     <Content Include="Views\Inversor\Create.cshtml" />
     <Content Include="Views\Inversor\Financiar.cshtml" />
+    <Content Include="Views\Inversor\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

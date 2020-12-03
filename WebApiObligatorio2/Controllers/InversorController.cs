@@ -11,7 +11,8 @@ namespace WebApiObligatorio2.Controllers
 {
     public class InversorController : ApiController
     {
-        RepositorioUsuarios repoUsuarios = new RepositorioUsuarios();
+        RepositorioInversor repoInv = new RepositorioInversor();
+
         // GET: api/Inversor
         public IEnumerable<string> Get()
         {
@@ -28,19 +29,15 @@ namespace WebApiObligatorio2.Controllers
         public IHttpActionResult Post([FromBody]Inversor unInversor)
         {
            
-            if (repoUsuarios.Add(unInversor))
+          if (repoInv.Add(unInversor))
 
             {
-
                 return (CreatedAtRoute("GetById", new { id = unInversor.cedula }, unInversor));
-
             }
 
             else
             {
-
                 return InternalServerError();
-
             }
         }
 
@@ -53,5 +50,28 @@ namespace WebApiObligatorio2.Controllers
         public void Delete(int id)
         {
         }
+
+
+        [Route("api/inversor/inversiones/{cedula}")]
+        // GET: api/Inversor/5
+        public IHttpActionResult GetPorCedula(string cedula)
+        {
+            var inversiones = repoInv.FindInversionesPorInversor(cedula);
+            if (inversiones != null)
+            {
+
+                return Ok(inversiones
+                    
+                    
+                    
+                    
+                    
+                    );
+            }
+            else
+                return NotFound();
+
+        }
+
     }
 }

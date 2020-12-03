@@ -19,12 +19,12 @@ namespace Repositorios
             if (objeto == null) return false;
             try
             {
-                using (db)
-                {
-                    db.Proyectos.Add(objeto);
-                    db.SaveChanges();
-                    return true;
-                }
+
+                db.Proyectos.Add(objeto);
+              //  db.Entry(objeto.solicitante).State = System.Data.Entity.EntityState.Unchanged;
+                db.SaveChanges();
+                return true;
+
             }
             catch (Exception ex)
             {
@@ -114,10 +114,10 @@ namespace Repositorios
         {
             try
             {
-                
+
                 using (db)
                 {
-                IEnumerable<Proyecto>  unProyecto = db.Proyectos.Where(p=>p.solicitante.cedula==cedula).ToList();
+                    IEnumerable<Proyecto> unProyecto = db.Proyectos.Where(p => p.solicitante.cedula == cedula).ToList();
                     return unProyecto;
                 }
             }
@@ -148,7 +148,7 @@ namespace Repositorios
             {
                 proyectos = proyectos.Where(proy => proy.descripcion.Contains(descripcion));
             }
-            if (monto!=0)
+            if (monto != 0)
             {
                 proyectos = proyectos.Where(proy => proy.monto <= monto);
             }

@@ -14,6 +14,8 @@ namespace Dominio
         [Required]
         [Key]
         public int id { get; set; }
+        [ForeignKey("unInversor")] public string Inversor_cedula { get; set; }
+        public Inversor unInversor { get; set; }
         [ForeignKey("unProyecto")] public int idProyecto { get; set; }
         public Proyecto unProyecto { get; set; }
         [Required]

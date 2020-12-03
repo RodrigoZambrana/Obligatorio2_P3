@@ -50,48 +50,7 @@ namespace Obligatorio.Controllers
             }
         }
 
-        public ActionResult Buscar(DateTime? fechaini, DateTime? fechaFin, string cedula, string titulo, string descripcion, string estado, decimal? monto)
-        {
-            string ruta = "";
-            string cedulaSession = (string)Session["usuario"];
-            string rol = (string)Session["rol"];
-            if (rol == "INVERSOR")
-            {
-                ruta = $"{proyectoUri}/busqueda/?fechaIni={fechaini}&fechaFin={fechaFin}&cedula={cedula}&titulo={titulo}&descripcion={descripcion}&estado={estado}&monto={monto}";
-                Uri uri = new Uri(ruta);
-
-                var response = cliente.GetAsync(uri).Result;
-                if (response.IsSuccessStatusCode)
-                {
-                    var lista = response.Content.ReadAsAsync<IEnumerable<ProyectoModel>>().Result;
-                    ViewBag.Mensaje = $"Se encontraron {lista.Count()} resultados";
-                    return  RedirectToAction("Index", "Inversor", lista);
-                }
-                ViewBag.Mensaje = "No se encontraron resultados";
-                return View("Index", "Inversor",new List<ProyectoModel>());
-            }
-            if (rol == "SOLICITANTE")
-            {
-                ruta = $"{proyectoUri}/busqueda/?fechaIni={fechaini}&fechaFin={fechaFin}&cedula={cedulaSession}&titulo={titulo}&descripcion={descripcion}&estado={estado}&monto={monto}";
-
-                Uri uri = new Uri(ruta);
-
-                var response = cliente.GetAsync(uri).Result;
-                if (response.IsSuccessStatusCode)
-                {
-                    var lista = response.Content.ReadAsAsync<IEnumerable<ProyectoModel>>().Result;
-                    ViewBag.Mensaje = $"Se encontraron {lista.Count()} resultados";
-                    return View("Index", "Solicitante", lista);
-                }
-                ViewBag.Mensaje = "No se encontraron resultados";
-                return View("Index", "Solicitante");
-            }
-            return View("Index", "Home");
-        }
-
-
-
-
+       
         //public ActionResult Details(int? id)
         //{
         //    if (id == null)
