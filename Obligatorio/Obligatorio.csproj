@@ -196,6 +196,7 @@
     <Content Include="Views\Inversor\Create.cshtml" />
     <Content Include="Views\Inversor\Financiar.cshtml" />
     <Content Include="Views\Inversor\Index.cshtml" />
+    <Content Include="Views\Inversor\Confirmar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

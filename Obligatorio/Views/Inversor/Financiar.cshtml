@@ -14,15 +14,12 @@
         <dt>
             @Html.DisplayNameFor(model => model.cedula)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.cedula)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.titulo)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.titulo)
         </dd>
@@ -85,7 +82,13 @@
 
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<form method="post" action="/Inversor/Financiar">
+    <div class="form-group">
+        <label for="monto">Monto a invertir</label>
+        <input type="text" class="form-control" name="monto" id="monto" placeholder="ingrese monto" required>
+    </div>
+</form>
+    <p>
+        @Html.ActionLink("Invertir", "Confirmar", new { id = Model.id, Model.monto }) |
+        @Html.ActionLink("Filtrar", "Filtrar")
+    </p>

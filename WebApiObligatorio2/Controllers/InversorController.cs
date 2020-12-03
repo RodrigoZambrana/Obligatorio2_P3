@@ -27,8 +27,7 @@ namespace WebApiObligatorio2.Controllers
 
         // POST: api/Inversor
         public IHttpActionResult Post([FromBody]Inversor unInversor)
-        {
-           
+        {     
           if (repoInv.Add(unInversor))
 
             {
@@ -71,6 +70,25 @@ namespace WebApiObligatorio2.Controllers
             else
                 return NotFound();
         }
+
+
+        // POST: api/Inversion
+        //public IHttpActionResult Inversion([FromBody]Inversion unaInversion)
+        //{
+        //    repos
+        //    if (repoInv.Add(unaInversion))
+
+        //    {
+        //        return (CreatedAtRoute("GetById", new { id = unaInversion.cedula }, unaInversion));
+        //    }
+
+        //    else
+        //    {
+        //        return InternalServerError();
+        //    }
+        //}
+
+
 
     }
 }

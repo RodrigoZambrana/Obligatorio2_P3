@@ -57,5 +57,11 @@ namespace Repositorios
 
         }
 
+        public bool AddInversion(Inversion unaInversion)
+        {
+            throw new NotImplementedException();
+        }
+
+
     }
 }

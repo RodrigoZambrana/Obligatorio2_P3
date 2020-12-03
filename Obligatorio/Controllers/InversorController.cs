@@ -38,7 +38,7 @@ namespace Obligatorio.Controllers
         }
 
         // GET: Inversor
-       // [Route("api/inversor/inversiones/{cedula}")]
+        // [Route("api/inversor/inversiones/{cedula}")]
         public ActionResult Index()
         {
             string cedula = (string)Session["usuario"];
@@ -54,7 +54,7 @@ namespace Obligatorio.Controllers
             ViewBag.Mensaje = "No se encontraron resultados";
             return View();
         }
-    
+
 
         public ActionResult Filtrar()
         {
@@ -63,7 +63,8 @@ namespace Obligatorio.Controllers
 
         //Inversor/Filtrar
         [HttpPost]
-        public ActionResult Filtrar(DateTime? fechaini, DateTime? fechaFin, string cedula, string titulo, string descripcion, string estado, decimal? monto) {
+        public ActionResult Filtrar(DateTime? fechaini, DateTime? fechaFin, string cedula, string titulo, string descripcion, string estado, decimal? monto)
+        {
             string ruta = $"{proyectoUri}/busqueda/?fechaIni={fechaini}&fechaFin={fechaFin}&cedula={cedula}&titulo={titulo}&descripcion={descripcion}&estado={estado}&monto={monto}";
             Uri uri = new Uri(ruta);
             var response = cliente.GetAsync(uri).Result;
@@ -100,7 +101,6 @@ namespace Obligatorio.Controllers
             return View(inversor);
         }
 
-        // GET: Inversor/Details/5
         public ActionResult Financiar(int? id)
         {
             if (id == null)
@@ -113,6 +113,7 @@ namespace Obligatorio.Controllers
                 return HttpNotFound();
             }
 
+            Session["proyectoAFinanciar"] = id;
             ProyectoModel m = new ProyectoModel
             {
                 id = p.id,
@@ -129,28 +130,33 @@ namespace Obligatorio.Controllers
             return View(m);
         }
 
-        //public ActionResult InversionesInversor() {
-        //    string cedula = (string)Session["usuario"];
-        //    string ruta = $"{inversorUri}/inversiones/?cedula={cedula}";
-        //    Uri uri = new Uri(ruta);
-        //    var response = cliente.GetAsync(uri).Result;
-        //    if (response.IsSuccessStatusCode)
-        //    {
-        //        var lista = response.Content.ReadAsAsync<IEnumerable<Inversion>>().Result;
-        //        ViewBag.Mensaje = $"Se encontraron {lista.Count()} resultados";
-        //        return View(lista);
-        //    }
-        //    ViewBag.Mensaje = "No se encontraron resultados";
-        //    return View();
-        //}
-    }
 
-        //    protected override void Dispose(bool disposing)
-        //    {
-        //        if (disposing)
-        //        {
-        //            db.Dispose();
-        //        }
-        //        base.Dispose(disposing);
-        //    }
+        [HttpPost]
+        public ActionResult Financiar(decimal monto)
+        {
+            int idProyecto = (int)Session["proyectoAFinanciar"];
+            Proyecto p = db.Proyectos.Find(idProyecto);
+
+            //creacion de nueva inversion
+            Inversion i = new Inversion {
+                fechaHora = DateTime.Now,
+                idProyecto = p.id,
+                Inversor_cedula = p.solicitante.cedula,
+                montoInversion = monto
+            };
+            //calculos previos al update de proyecto
+            p.monto -= monto;
+            var tareaPost = cliente.PutAsJsonAsync(proyectoUri + "/update/" + p.id,p);
+            var result = tareaPost.Result;
+            if (result.IsSuccessStatusCode)
+            {
+                    db.Inversiones.Add(i);
+                    db.SaveChanges();
+                return RedirectToAction("Index");      
+
+            }
+            ViewBag.ResultadoOperación = "Ups! Verifique los datos";
+            return View(p);
+        }		
+    }
     }
