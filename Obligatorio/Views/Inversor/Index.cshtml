@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Dominio.Inversion>
+﻿@model IEnumerable<Obligatorio.Models.InversionModel>
 
 @{
     ViewBag.Title = "Index";
@@ -7,13 +7,10 @@
 
 <h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.unProyecto.titulo)
+            @Html.DisplayNameFor(model => model.idProyecto)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.fechaHora)
@@ -27,7 +24,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.unProyecto.titulo)
+            @Html.DisplayFor(modelItem => item.idProyecto)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.fechaHora)

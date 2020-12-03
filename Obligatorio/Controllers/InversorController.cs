@@ -20,11 +20,18 @@ namespace Obligatorio.Controllers
         HttpClient cliente = new HttpClient();
         HttpResponseMessage response = new HttpResponseMessage();
         Uri inversorUri = null;
+        Uri proyectoUri = null;
 
         public InversorController()
         {
             cliente.BaseAddress = new Uri("http://localhost:31069");
             inversorUri = new Uri("http://localhost:52230/api/inversor");
+            cliente.DefaultRequestHeaders.Accept.Clear();
+            cliente.DefaultRequestHeaders.Accept.Add(
+       new MediaTypeWithQualityHeaderValue("application/json"));
+
+            cliente.BaseAddress = new Uri("http://localhost:31069");
+            proyectoUri = new Uri("http://localhost:52230/api/proyecto");
             cliente.DefaultRequestHeaders.Accept.Clear();
             cliente.DefaultRequestHeaders.Accept.Add(
        new MediaTypeWithQualityHeaderValue("application/json"));
@@ -35,12 +42,12 @@ namespace Obligatorio.Controllers
         public ActionResult Index()
         {
             string cedula = (string)Session["usuario"];
-            string ruta = $"{inversorUri}/inversiones/?cedula={cedula}";
+            string ruta = $"{inversorUri}/inversiones/{cedula}";
             Uri uri = new Uri(ruta);
             var response = cliente.GetAsync(uri).Result;
             if (response.IsSuccessStatusCode)
             {
-                var lista = response.Content.ReadAsAsync<IEnumerable<Inversion>>().Result;
+                var lista = response.Content.ReadAsAsync<IEnumerable<Models.InversionModel>>().Result;
                 ViewBag.Mensaje = $"Se encontraron {lista.Count()} resultados";
                 return View(lista);
             }
@@ -57,7 +64,7 @@ namespace Obligatorio.Controllers
         //Inversor/Filtrar
         [HttpPost]
         public ActionResult Filtrar(DateTime? fechaini, DateTime? fechaFin, string cedula, string titulo, string descripcion, string estado, decimal? monto) {
-            string ruta = $"{inversorUri}/busqueda/?fechaIni={fechaini}&fechaFin={fechaFin}&cedula={cedula}&titulo={titulo}&descripcion={descripcion}&estado={estado}&monto={monto}";
+            string ruta = $"{proyectoUri}/busqueda/?fechaIni={fechaini}&fechaFin={fechaFin}&cedula={cedula}&titulo={titulo}&descripcion={descripcion}&estado={estado}&monto={monto}";
             Uri uri = new Uri(ruta);
             var response = cliente.GetAsync(uri).Result;
             if (response.IsSuccessStatusCode)

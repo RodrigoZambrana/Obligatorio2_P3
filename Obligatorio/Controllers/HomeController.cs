@@ -26,8 +26,7 @@ namespace Obligatorio.Controllers
             if (u != null && u.password.Equals(password))
             {
                
-                Session["usuario"] = u.cedula;
-                Session["rol"] = u.GetType().Name.ToUpper();
+                Session["usuario"] = u.cedula;              
                 Session["edad"] = u.Edad();
 
                 if (u is Admin)
@@ -37,11 +36,13 @@ namespace Obligatorio.Controllers
                 }
                 if (u is Solicitante)
                 {
+                    Session["rol"] = "SOLICITANTE";
                     Solicitante s = (Solicitante)u;
                     return RedirectToAction("Index", "Solicitante");
                 }
                 if (u is Inversor)
                 {
+                    Session["rol"] = "INVERSOR";
                     Inversor i = (Inversor)u;
                     return RedirectToAction("Index", "Inversor");
                 }

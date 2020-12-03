@@ -99,11 +99,13 @@
             <td>
                 @Html.DisplayFor(modelItem => item.tipo)
             </td>
+            @if (item.estado=="ABIERTO") {
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+
+                @Html.ActionLink("Financiar", "Financiar", new { id = item.id }) |
+    
             </td>
+            }
         </tr>
     }
 

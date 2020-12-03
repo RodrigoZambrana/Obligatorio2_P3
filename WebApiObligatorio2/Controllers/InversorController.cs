@@ -60,17 +60,16 @@ namespace WebApiObligatorio2.Controllers
             if (inversiones != null)
             {
 
-                return Ok(inversiones
-                    
-                    
-                    
-                    
-                    
-                    );
+                return Ok(inversiones.Select(i => new Models.InversionModel
+                {
+                   idProyecto=i.unProyecto.id,
+                   fechaHora=i.fechaHora,
+                   montoInversion=i.montoInversion,
+                }).ToList());
+            
             }
             else
                 return NotFound();
-
         }
 
     }
