@@ -14,6 +14,7 @@ namespace WebApiObligatorio2.Controllers
         RepositorioProyectos repoProy = new RepositorioProyectos();
         // GET: api/Proyecto
         public IHttpActionResult Get()
+
         {
 
             var proyectos = repoProy.FindAll();
@@ -65,6 +66,25 @@ namespace WebApiObligatorio2.Controllers
                 return NotFound();
         }
 
+        [HttpPut]
+
+        [Route("api/proyecto/update/{id}")]
+        public IHttpActionResult Put(int id, [FromBody] Proyecto unProyecto)
+        {
+            if (unProyecto == null)
+                return BadRequest();
+            if (unProyecto != null)
+            {
+                if (repoProy.Update(unProyecto))
+                   return Ok(repoProy);
+                else
+                  return BadRequest();
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
 
         // POST: api/Proyecto
         public void Post([FromBody]string value)

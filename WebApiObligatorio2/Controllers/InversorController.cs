@@ -56,20 +56,39 @@ namespace WebApiObligatorio2.Controllers
         public IHttpActionResult GetPorCedula(string cedula)
         {
             var inversiones = repoInv.FindInversionesPorInversor(cedula);
+
             if (inversiones != null)
             {
 
                 return Ok(inversiones.Select(i => new Models.InversionModel
                 {
-                   idProyecto=i.unProyecto.id,
-                   fechaHora=i.fechaHora,
+                    idProyecto = i.unProyecto.id,
+                    tituloProyecto = i.unProyecto.titulo,
+                    fechaProyecto = i.unProyecto.fechaPresentacion,
+                    montoSolicitado = i.unProyecto.monto,
+                    CantidadCoutas = i.unProyecto.cuotas,
+                    montoConIntereses = (i.unProyecto.tasaInteres * i.unProyecto.monto / 100) + i.unProyecto.monto,
+                   tasaAplicada =i.unProyecto.tasaInteres,
+                   cedulaSolicitante=i.unProyecto.cedula,
+                   apellidoSolictante=i.unProyecto.solicitante.apellido,
                    montoInversion=i.montoInversion,
+                   fechaHoraInversion=i.fechaHora
                 }).ToList());
             
             }
             else
                 return NotFound();
         }
+        
+        //public string cedulaSolicitante { get; set; }
+        //public string apellidoSolictante { get; set; }
+        //public DateTime fechaHoraInversion { get; set; }
+        //public decimal montoInversion { get; set; }
+
+
+
+
+
 
 
         // POST: api/Inversion

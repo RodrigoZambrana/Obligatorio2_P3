@@ -18,7 +18,7 @@ namespace Dominio
         [Required]
         public decimal monto{ get; set; }
         //monto que se irá descontando a medida que se realicen inversiones
-        public decimal montoRestante { get; set; }
+        public decimal montoRestante { get; set; } = 1000;
         [Required]
         public int cuotas{ get; set; }
         [Required]
@@ -34,10 +34,9 @@ namespace Dominio
        [ForeignKey("solicitante")]
         public string cedula { get; set; }
 
-
-        public void setSolicitante(Solicitante u)
-        {
-            this.solicitante = u;
+        public Proyecto()
+        {      
+            this.montoRestante = monto;      
         }
 
         public bool Validar()

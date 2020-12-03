@@ -87,8 +87,8 @@
         <label for="monto">Monto a invertir</label>
         <input type="text" class="form-control" name="monto" id="monto" placeholder="ingrese monto" required>
     </div>
+    <button type="submit" value="invertir"></button>
 </form>
     <p>
-        @Html.ActionLink("Invertir", "Confirmar", new { id = Model.id, Model.monto }) |
         @Html.ActionLink("Filtrar", "Filtrar")
     </p>

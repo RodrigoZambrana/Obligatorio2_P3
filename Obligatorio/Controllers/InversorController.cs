@@ -136,16 +136,20 @@ namespace Obligatorio.Controllers
         {
             int idProyecto = (int)Session["proyectoAFinanciar"];
             Proyecto p = db.Proyectos.Find(idProyecto);
-
+            //Solicitante s = (Solicitante)db.Usuarios.Find(p.cedula);
+            //p.solicitante = s;
             //creacion de nueva inversion
             Inversion i = new Inversion {
                 fechaHora = DateTime.Now,
                 idProyecto = p.id,
-                Inversor_cedula = p.solicitante.cedula,
+                Inversor_cedula= (string)Session["usuario"],
                 montoInversion = monto
             };
             //calculos previos al update de proyecto
-            p.monto -= monto;
+            var montoFinal=p.montoRestante-monto;
+            if (montoFinal<=0) {
+                p.estado = "Cerrado";
+            }
             var tareaPost = cliente.PutAsJsonAsync(proyectoUri + "/update/" + p.id,p);
             var result = tareaPost.Result;
             if (result.IsSuccessStatusCode)

@@ -5,15 +5,45 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Mis inversiones</h2>
+<h2>Index</h2>
 
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
 <table class="table">
     <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.cedulaInversor)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.idProyecto)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.fechaHora)
+            @Html.DisplayNameFor(model => model.tituloProyecto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fechaProyecto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.montoSolicitado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CantidadCoutas)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.montoConIntereses)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tasaAplicada)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cedulaSolicitante)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.apellidoSolictante)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fechaHoraInversion)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.montoInversion)
@@ -27,16 +57,36 @@
             @Html.DisplayFor(modelItem => item.idProyecto)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.fechaHora)
+            @Html.DisplayFor(modelItem => item.tituloProyecto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fechaProyecto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.montoSolicitado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CantidadCoutas)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.montoConIntereses)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tasaAplicada)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cedulaSolicitante)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.apellidoSolictante)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fechaHoraInversion)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.montoInversion)
         </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
-        </td>
+       
     </tr>
 }
 
